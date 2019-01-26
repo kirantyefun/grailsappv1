@@ -15,8 +15,15 @@ class UploadController {
             render(view: 'choose')
             return
         }
+        String name = f.originalFilename
+        int a = name.lastIndexOf(".");
 
-        f.transferTo(new File('F:/grpro/image/new folder/myFile.jpg'))
-        response.sendError(200, 'Done')
+        String extension =name.substring(a);
+
+         f.transferTo(new File('F:/grpro/image/new folder/'+f.originalFilename))
+         response.sendError(200, 'Done')
     }
+
+
+
 }
